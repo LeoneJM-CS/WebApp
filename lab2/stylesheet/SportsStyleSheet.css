@@ -17,9 +17,10 @@ body{
     text-decoration: none;
 }
 .navlogo{
-    max-width: 5%;
+    max-width: 4%;
     height: auto;
     text-align: right;
+    border-radius: 5px;
 }
 .navItem:hover{
     color: aqua;
@@ -61,6 +62,24 @@ body{
     margin-bottom: 0.5rem;
     align-items: left;
 }
+.artleft{
+    color: whitesmoke;
+    display:inline-block;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+    margin-left: 2.5rem;
+    /* width: 50rem; */
+    align-items: left;
+}
+.artright{
+    color: whitesmoke;
+    display:inline-block;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+    margin-right: 1rem;
+    /* width: 50rem; */
+    margin-left: 30rem;
+}
 .art.table{
     border: 2px solid #dfb462;
     /* border-collapse: collapse; */
@@ -91,5 +110,20 @@ body{
     height: auto;
     /* align-self: center; */
 }
-
-
+.footer{
+    text-align: center;
+    height: 5rem;
+    background: #dfb462;
+    align-items: left;
+    /* text-decoration: none;
+    color: black; */
+}
+.footer.item{
+    text-decoration: none;
+    color: black;
+    padding: 1rem;
+}
+.span{
+    text-align: center;
+    color: whitesmoke;
+}
