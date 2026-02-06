@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Forms</title>
+    </head>
+    
+    <body>
+    <form action="https://example.com" method="POST" enctype="multipart/form-data">
+        
+        <div>
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username">
+        </div>
+        <div>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password">
+        </div>
+        <div>
+            <label for="age">Age:</label>
+            <select name="age" id="age">
+                <option selected disabled>Age</option>
+                <option value="17">17</option>
+                <option value="18">18</option>
+                <option value="19">19</option>
+                <option value="20">20</option>
+                <option value="21">21</option>
+            </select>
+        </div>
+        <div>
+            <textarea type="text" name="address" rows="4" cols="40" id="address" placeholder="Residence Address..."></textarea>
+        </div>
+        <div>
+            <label for="program">Program:</label>
+            <input type="text" id="program" name="program">
+        </div>
+        <div>
+            <span>Gradschool:</span>
+            <label for="grad">Yes</label>
+            <input type="checkbox" id="grad" name="grad">
+            <!-- <label for="grad">No</label>
+            <input type="radio" id="grad" name="grad"> -->
+        </div>
+        <div>
+            Which School:<br>
+            <label for="school">John Brown University</label>
+            <input type="radio" id="school" name="school"> <br>
+            <label for="school">Harvard</label>
+            <input type="radio" id="school" name="school"> <br>
+            <label for="school">Yale</label>
+            <input type="radio" id="school" name="school"> <br>
+            <label for="school">Yale</label>
+            <input type="radio" id="school" name="school"> <br>
+        </div>
+        <label for="major">Major:</label>
+        <div style="padding:10px">
+            <select name="major" size="5" id="major" multiple>
+                <option selected disabled>Choose Major</option>
+                <option value="CS">Computer Science</option>
+                <option value="AI">Artificial Intelligence</option>
+                <option value="DS">Data Science</option>
+                <option value="PCY">Psychology</option>
+                <option value="CYB">Cybersecurity</option>
+                <option value="EE">Electrical Engineering</option>
+                <option value="BBL">Bible</option>
+                <option value="BIO">Biology</option>
+                <option value="CHM">Chemistry</option>
+                <option value="MTH">Mathematics</option>
+            </select>
+        </div>
+        <!-- <textarea name="comments" rows="4" cols="40" placeholder="Comments..."></textarea> -->
+        <div>
+            <input type="submit">
+        </div>
+    </form>
+    </body>
+</html>
