@@ -1,0 +1,95 @@
+body{
+    background: #0c2a3e;
+    /* #09283c */
+}
+.navbar{
+    border-radius: 15px;    
+    padding: 1px;
+    background: #dfb462;
+    margin: auto;
+    justify-content: space-between;
+    align-items: left;
+}
+
+.navItem{
+    color: black;
+    padding: 1rem;
+    text-decoration: none;
+}
+.navlogo{
+    max-width: 5%;
+    height: auto;
+    text-align: right;
+}
+.navItem:hover{
+    color: aqua;
+}
+.menubar{
+    list-style-type: none;
+}
+.header{
+    text-align: center;
+    height: 10rem;
+    background-image: url(wp6705749-moutains-ultra-hd-wallpapers.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.tr{
+    color: whitesmoke;
+}
+.th, .td {
+    color: whitesmoke;
+    border: 1px solid whitesmoke;
+    padding: 5px;
+    text-align: center;
+}
+.td:hover{
+    color:gold;
+}
+.span{
+    text-align: center;
+}
+.img{
+    /* display: flex; */
+    max-width: 100%;
+    max-height: 100%;
+}
+.art{
+    color: whitesmoke;
+    display:inline-block;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+    align-items: left;
+}
+.art.table{
+    border: 2px solid #dfb462;
+    /* border-collapse: collapse; */
+    padding: 5px;
+    text-align: center;
+}
+.tdteam{
+    color: whitesmoke;
+    border: 1px solid whitesmoke;
+    padding: 5px;
+    text-align: center;
+    color:#dfb462;
+}
+.tdteam:hover{
+    color:gold;
+}
+/* #77202d */
+.div{
+    text-align: center;
+}
+.div.article{
+    position: absolute;
+    color: whitesmoke;
+    text-align: left;
+}
+.logo{
+    max-width: 20%;
+    height: auto;
+    /* align-self: center; */
+}
+
+
