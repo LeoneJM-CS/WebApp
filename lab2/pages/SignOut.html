@@ -1,0 +1,42 @@
+<!Doctype html>
+<html lang="eng">
+    <head>
+        <style>
+            @import url("SportsStyleSheet.css");
+        </style>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Sign Out</title>
+        <script src="registration.js"></script>
+    </head>
+    <body>
+        <nav class="navbar">
+            <ul class="menubar">
+                <img class="navlogo" src="BCO.95f7f9ed-bc7d-4c83-8c2a-9b710f50d47f.png" alt="teamLogo">
+                <a class="navItem" href="SportsHome.html">Home</a>
+                <a class="navItem" href="Schedule.html">Schedule</a>
+                <a class="navItem" href="Register.html">Register</a>
+                <a class="navItem" href="About.html">About</a>
+                <!-- <a class="navItem" href="SignOut.html" id="signout-link" hidden>Sign Out</a> -->
+                <span class="navUser" data-registered-user hidden></span>
+            </ul>
+        </nav>
+        
+        <div class="signout-container">
+            <h2>Are you sure you want to sign out?</h2>
+            <div class="signout-buttons">
+                <button class="signout-btn" onclick="confirmSignOut()">Yes, Sign Out</button>
+                <button class="cancel-btn" onclick="window.history.back()">Cancel</button>
+            </div>
+        </div>
+
+        <script>
+            function confirmSignOut() 
+            {
+                localStorage.removeItem("registeredUser");
+                alert("You have been signed out.");
+                window.location.href = "SportsHome.html";
+            }
+        </script>
+    </body>
+</html>
