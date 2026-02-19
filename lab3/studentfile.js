@@ -1,12 +1,15 @@
 "use strict";
 
 let students = [];
+let mostRecentlyAddedStudentId = null;
+
 const STORAGE_KEY = "lab3_students";
-const DEFAULT_STUDENTS = [
-    { id: 1, name: "John", age: 21, course: "CS" },
-    { id: 2, name: "Jim", age: 22, course: "IT" },
-    { id: 3, name: "Joe", age: 20, course: "SE" }
-];
+const DEFAULT_STUDENTS = fetch("Students.json")
+    .then((response) => response.json())
+    .catch((err) => {
+        console.error("Error fetching JSON:", err);
+        return [];
+    });
 
 function escapeHtml(str = "") {
     return String(str)
@@ -38,7 +41,14 @@ function renderList(data) {
         card.style.margin = "8px 0";
         card.style.borderRadius = "4px";
         card.style.boxShadow = "0 2px 4px rgba(61, 44, 44, 0.77)";
-
+        // if (
+        //     mostRecentlyAddedStudentId &&
+        //     studentId === mostRecentlyAddedStudentId
+        // ) {
+        //     card.style.border = "2px solid #2e7d32";
+        //     card.style.backgroundColor = "#e8f5e9";
+        //     card.style.boxShadow = "0 0 0 2px rgba(46,125,50,0.2)";
+        // }
         const name = document.createElement("h3");
         name.textContent = student.name ?? "Unnamed";
 
@@ -74,39 +84,71 @@ function filterStudents(query) {
     });
 }
 
+function sortStudentsData(data, sortBy = "name") {
+    return [...data].sort((a, b) => {
+        if (sortBy === "age") {
+            const firstAge = Number(a.age) || 0;
+            const secondAge = Number(b.age) || 0;
+            return firstAge - secondAge;
+        }
+
+        const firstName = String(a.name ?? "").toLowerCase();
+        const secondName = String(b.name ?? "").toLowerCase();
+        return firstName.localeCompare(secondName);
+    });
+}
+
 function setupSearch() {
     const searchForm = document.getElementById("searchForm");
     const searchInput = document.getElementById("searchInput");
+    const sortByInput = document.getElementById("sortBy");
+    // const sortOrderInput = document.getElementById("sortOrder");
     const searchResult = document.getElementById("searchResult");
     const clearButton = document.getElementById("clearSearch");
 
     if (!searchForm || !searchInput) return;
 
-    searchForm.addEventListener("submit", (event) => {
-        event.preventDefault();
-
+    const applySearchAndSort = (requireQuery = true) => {
         const query = searchInput.value;
-        if (query.trim() === "") {
+        const trimmedQuery = query.trim();
+
+        if (requireQuery && trimmedQuery === "") {
             clearList();
             if (searchResult) searchResult.textContent = "Enter a search term.";
             return;
         }
 
-        const filtered = filterStudents(query);
-        renderList(filtered);
+        const filtered = trimmedQuery === "" ? students : filterStudents(query);
+        const sorted = sortStudentsData(
+            filtered,
+            sortByInput ? sortByInput.value : "name"
+        );
+
+        renderList(sorted);
 
         if (searchResult) {
-            if (query.trim() === "") {
-                searchResult.textContent = "Showing all students.";
-            } else {
-                searchResult.textContent = `Found ${filtered.length} student(s).`;
-            }
+            searchResult.textContent = trimmedQuery === ""
+                ? "Showing all students."
+                : `Found ${sorted.length} student(s).`;
         }
+    };
+
+    searchForm.addEventListener("submit", (event) => {
+        event.preventDefault();
+        applySearchAndSort(true);
     });
+
+    if (sortByInput) {
+        sortByInput.addEventListener("change", () => {
+            applySearchAndSort(false);
+        });
+    }
 
     if (clearButton) {
         clearButton.addEventListener("click", () => {
             searchInput.value = "";
+            if (sortByInput) sortByInput.value = "name";
+            // if (sortOrderInput) sortOrderInput.value = "asc";
             renderList(students);
             if (searchResult) searchResult.textContent = "Showing all students.";
         });
@@ -124,17 +166,23 @@ function readStoredStudents() {
     }
 }
 
-function saveStoredStudents(data) {
+function saveStoredStudents(data) { //puts data into local array storage
     localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
 }
 
-function createStudent(student) {
+function createStudent(student) { // creates the student
     const newId = String(student.id).trim().toLowerCase();
-    if (students.some((existingStudent) => String(existingStudent.id).trim().toLowerCase() === newId)) {
+    if (
+        students.some(
+            (existingStudent) =>
+                String(existingStudent.id).trim().toLowerCase() === newId
+        )
+    ) {
         throw new Error("ID already exists.");
     }
-
+    // students.json.push(student);
     students.push(student);
+    mostRecentlyAddedStudentId = newId;
     saveStoredStudents(students);
     return student;
 }
@@ -157,7 +205,10 @@ function setupAddForm() {
             if (result) result.textContent = "Please fill out all fields correctly.";
             return;
         }
-
+        if(/\d/.test(name)){
+            if (result) result.textContent = "Name cannot contain numbers.";
+            return;
+        }
         try {
             createStudent({ id, name, age, course });
             renderList(students);
@@ -174,7 +225,8 @@ function setupAddForm() {
 async function loadStudents() {
     try {
         const stored = readStoredStudents();
-        students = stored ?? [...DEFAULT_STUDENTS];
+        const defaultStudents = await DEFAULT_STUDENTS;
+        students = stored ?? [...defaultStudents];
         if (!stored) saveStoredStudents(students);
         renderList(students);
     } catch {

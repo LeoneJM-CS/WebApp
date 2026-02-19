@@ -1,5 +1,8 @@
 [
     { "id": 1, "name": "John", "age": 21, "course": "CS" },
     { "id": 2, "name": "Jim", "age": 22, "course": "IT" },
-    { "id": 3, "name": "Joe", "age": 20, "course": "SE" }
+    { "id": 3, "name": "Joe", "age": 20, "course": "SE" },
+    { "id": 4, "name": "Malachi", "age": 21, "course": "BBL" },
+    { "id": 5, "name": "Abby", "age": 19, "course": "SPN" },
+    { "id": 6, "name": "Alice", "age": 18, "course": "PSY" }
 ]

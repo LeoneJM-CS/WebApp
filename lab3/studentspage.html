@@ -26,6 +26,16 @@
                         <form id="searchForm" role="search" aria-label="Search students">
                             <label for="searchInput">Search by name, ID, or course:</label>
                             <input type="text" id="searchInput" name="searchInput" placeholder="e.g. John, 2, CS" />
+                            <label for="sortBy">Sort by:</label>
+                            <select id="sortBy" name="sortBy">
+                                <option value="name">Name</option>
+                                <option value="age">Age</option>
+                            </select>
+                            <!-- <label for="sortOrder">Order:</label>
+                            <select id="sortOrder" name="sortOrder">
+                                <option value="asc">Ascending</option>
+                                <option value="desc">Descending</option>
+                            </select> -->
                             <button type="submit">Search</button>
                             <button type="button" id="clearSearch">Clear</button>
                             <div id="searchResult" aria-live="polite"></div>
