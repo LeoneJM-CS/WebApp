@@ -1,0 +1,67 @@
+<!Doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Students Page</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <nav class="navbar">
+            <div class="container nav-container">
+                <ul class="nav-menu">
+                    <li><a class="nav-link" href="#Home" >Home</a></li>
+                    <li><a class="nav-link" href="#searchStus" >Search</a></li>
+                    <li><a class="nav-link" href="#add" >Add student</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <section id="Home"></section>
+        
+            <section id="searchStus">
+                <div class="container search-container">
+                    <h2>Search Students</h2>
+                    <div>
+                        <form id="searchForm" role="search" aria-label="Search students">
+                            <label for="searchInput">Search by name, ID, or course:</label>
+                            <input type="text" id="searchInput" name="searchInput" placeholder="e.g. John, 2, CS" />
+                            <button type="submit">Search</button>
+                            <button type="button" id="clearSearch">Clear</button>
+                            <div id="searchResult" aria-live="polite"></div>
+                        </form>
+                    </div>
+            </div>
+            </section>
+            <section id="add" class="container add-student">
+                <h2>Add Student</h2>
+                <form id="addStudentForm" novalidate>
+                    <div>
+                        <label for="id">ID</label>
+                        <input type="text" id="id" name="id" min="1" required />
+                        <div class="error" id="idError"></div>
+                    </div>
+                    <div>
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" required />
+                        <div class="error" id="nameError"></div>
+                    </div>
+                    <div>
+                        <label for="age">Age</label>
+                        <input type="number" id="age" name="age" min="1" required />
+                        <div class="error" id="ageError"></div>
+                    </div>
+                    <div>
+                        <label for="course">Course</label>
+                        <input type="text" id="course" name="course" required />
+                        <div class="error" id="courseError"></div>
+                    </div>
+                    <div>
+                        <button type="submit">Add Student</button>
+                    </div>
+                    <div id="addResult" aria-live="polite"></div>
+                </form>
+            </section>
+        <script src="studentfile.js"></script>
+    </body>
+</html>
