@@ -79,3 +79,19 @@ body {
     display: flex;
     justify-content: center;
 }
+
+.student-card {
+    border: 1px solid #ccc;
+    padding: 8px;
+    margin: 8px 0;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(61, 44, 44, 0.77);
+    transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer; 
+}
+
+.student-card:hover {
+    transform: translate3d(10px, 5px, 5px) scale(0.98);
+    background-color: #507a9e;
+    box-shadow: 0 6px 12px rgba(61, 44, 44, 0.9);
+}
