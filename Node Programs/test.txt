@@ -1,3 +1,11 @@
-This is the test.txt file
-I don't know what to put in here
-I want to go back to bed
+How to download Node.js
+Developers may install Node.js using 
+installers from the Node.js website for Windows,
+macOS, and other operating systems.
+In custom setup make sure "Node.js runtime" is selected.
+Start an interactive shell and execute statement "node",
+to change the file directory of the command shell, type "cd"
+hit enter, then name of folder with quotations if the folder contains spaces.
+If folder in a folder, type Parent_folder \ Child_folder.
+To run a file type "node " filename.js.
+To end Node server, type ctl + C in the terminal
