@@ -3,7 +3,7 @@ Must add React and npm to personal laptop to get this to work.
 <details>
   <summary>React</summary>
   
-  ### Creating React
+  ### Setting up React
   command --> npm create vite@latest
   - Set framework to "React"
   - Set language to "JavaScript"
@@ -13,4 +13,8 @@ Must add React and npm to personal laptop to get this to work.
 </details>
 <details>
   <summary>Node/npm</summary>
+  ### Setting up Node/npm
+  - Open Node.js download
+  - install Node version with LTS (Long Term Support)
+  
 </details>
