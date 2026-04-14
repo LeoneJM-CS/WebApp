@@ -13,6 +13,7 @@ Must add React and npm to personal laptop to get this to work.
 </details>
 <details>
   <summary>Node/npm</summary>
+  
   ### Setting up Node/npm
   - Open Node.js download
   - install Node version with LTS (Long Term Support)
